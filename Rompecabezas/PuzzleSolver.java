@@ -153,21 +153,36 @@ public class PuzzleSolver {
         }
 
         //Test fuerza bruta - Persona 2 xd
-        System.out.println("\n--- Test fuerza bruta ---");
+
+        //Piezas para los tests:
+        List<Piece> piezasTest = PuzzleGenerator.generateWithSolution(3, 9);
         Board boardFuerzaBruta = new Board(3);
-        List<Piece> piezasFuerzaBruta = PuzzleGenerator.generateWithSolution(3, 9);
+        Board boardAvanceRapido = new Board(3);
+
         System.out.println("\n--- Piezas ---");
-        for (Piece p : piezasFuerzaBruta) {
+        for (Piece p : piezasTest) {
             System.out.println(p);
         }
-         BruteForceSolver solverForce = new BruteForceSolver(boardFuerzaBruta, piezasFuerzaBruta);
-         if(solverForce.solve()){
+
+        System.out.println("\n--- Test fuerza bruta ---");
+        BruteForceSolver solverForce = new BruteForceSolver(boardFuerzaBruta, piezasTest);
+        if(solverForce.solve()){
             System.out.println("Se encontro solución:");
             boardFuerzaBruta.print();
-         }else{
+        }else{
             System.out.println("No se encontro solución");
-            boardFuerzaBruta.print();
-         }
-       
+        }
+
+        //Test de avance rapido - Persona 2 xd
+        System.out.println("\n--- Test avance rapido ---");
+        AvanceRapido solverAvance = new AvanceRapido(boardAvanceRapido, piezasTest);
+        if(solverAvance.solve()){
+            System.out.println("Se encontro solución:");
+            boardAvanceRapido.print();
+        }else{
+            System.out.println("No se encontro solución");
+        }
+
+
     }
 }
