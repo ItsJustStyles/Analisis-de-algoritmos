@@ -80,7 +80,7 @@ public class Board {
                 } else {
                     System.out.print(" [  ] ");
                 }
-                System.out.print(" ");
+                //System.out.print(" ");
             }
             System.out.println();
 

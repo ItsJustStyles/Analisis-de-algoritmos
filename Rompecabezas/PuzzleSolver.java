@@ -155,9 +155,10 @@ public class PuzzleSolver {
         //Test fuerza bruta - Persona 2 xd
 
         //Piezas para los tests:
-        List<Piece> piezasTest = PuzzleGenerator.generateWithSolution(3, 9);
-        Board boardFuerzaBruta = new Board(3);
-        Board boardAvanceRapido = new Board(3);
+        int tamaño = 3;
+        List<Piece> piezasTest = PuzzleGenerator.generateWithSolution(tamaño, 9);
+        Board boardFuerzaBruta = new Board(tamaño);
+        Board boardAvanceRapido = new Board(tamaño);
 
         System.out.println("\n--- Piezas ---");
         for (Piece p : piezasTest) {
@@ -169,6 +170,8 @@ public class PuzzleSolver {
         if(solverForce.solve()){
             System.out.println("Se encontro solución:");
             boardFuerzaBruta.print();
+            System.out.println("Comparaciones: " + solverForce.getComparaciones());
+            System.out.println("Asignaciones: " + solverForce.getComparaciones());
         }else{
             System.out.println("No se encontro solución");
         }
@@ -179,6 +182,8 @@ public class PuzzleSolver {
         if(solverAvance.solve()){
             System.out.println("Se encontro solución:");
             boardAvanceRapido.print();
+            System.out.println("Comparaciones: " + solverAvance.getComparaciones());
+            System.out.println("Asignaciones: " + solverAvance.getComparaciones());
         }else{
             System.out.println("No se encontro solución");
         }
